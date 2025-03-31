@@ -12,7 +12,7 @@ function App() {
 
   // Fetch chat history on load
   useEffect(() => {
-    fetch('http://192.168.100.84:5000/api/chat')
+    fetch('https://gemini-2-0-flash-api.onrender.com/api/chat')
       .then((res) => res.json())
       .then((data) => setMessages(data))
       .catch((error) => console.error('Error fetching chat history:', error));
@@ -47,7 +47,7 @@ function App() {
     }
 
     try {
-      const response = await fetch('http://192.168.100.84:5000/api/chat/upload', {
+      const response = await fetch('https://gemini-2-0-flash-api.onrender.com/api/chat/upload', {
         method: 'POST',
         body: formData,
       });
@@ -119,7 +119,7 @@ function App() {
     if (window.confirm('Are you sure you want to clear the chat history?')) {
       setMessages([]);
       // You may want to also clear the chat history from the server
-      fetch('http://192.168.100.84:5000/api/chat', { method: 'delete' });
+      fetch('https://gemini-2-0-flash-api.onrender.com/api/chat', { method: 'delete' });
     }
   };
 
